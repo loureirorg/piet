@@ -29,13 +29,13 @@ module Piet
 
     def optimize_png(path, opts)
       vo = opts[:verbose] ? "-v" : "-quiet"
-      `optipng -o7 #{vo} #{path}`
+      `optipng -o7 #{command_options} #{vo} #{path}`
     end
 
     def optimize_jpg(path, opts)
       quality = (0..100).include?(opts[:quality]) ? opts[:quality] : 100
       vo = opts[:verbose] ? "-v" : "-q"
-      `jpegoptim -f -m#{quality} --strip-all #{vo} #{path}`
+      `jpegoptim -f -m#{quality} --strip-all #{command_options} #{vo} #{path}`
     end
 
   end
